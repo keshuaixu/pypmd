@@ -12,7 +12,7 @@ __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file
 mystery_code_path = os.path.join(__location__, 'mystery_code.pickle')
 
 with open(mystery_code_path, 'rb') as f:
-    mystery_code = pickle.load(f)
+    rx_length = pickle.load(f)
 
 
 class PMD:
@@ -23,7 +23,7 @@ class PMD:
     def send_command(self, axis=0, op_code=None, payload=(), payload_format='', return_format=None):
         payload_bits = bitstring.pack(payload_format, *payload)
         payload_bits.byteswap(2)
-        command = bitstring.pack('0x62, 0x40, uint:8, uint:4, uint:4, bits', op_code, mystery_code[op_code], axis,
+        command = bitstring.pack('0x62, 0x40, uint:8, uint:2, uint:6, bits', op_code, rx_length[op_code], axis,
                                  payload_bits)
         self.transport.send(command.bytes)
         logging.debug(f'sent {command.bytes}')

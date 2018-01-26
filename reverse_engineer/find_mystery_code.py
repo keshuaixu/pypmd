@@ -13,7 +13,7 @@ def analyze(filename: str):
             d = p.data.data
             if d.startswith('6240'):
                 op_code = int(d[4:6], 16)
-                mystery_code = int(d[6], 16)
+                mystery_code = int(d[6], 16) >> 2
                 if op_code in mysteries and mysteries[op_code] != mystery_code:
                     logging.error(
                         f'inconsistent mystery code found! op {op_code} old {mysteries[op_code]} new {mystery_code}')
