@@ -4,15 +4,27 @@ import pickle
 import bitstring
 
 from pypmd.tcp_transport import TCPTransport
-from pypmd.op_codes import *
 
 import os
 
 __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
-mystery_code_path = os.path.join(__location__, 'mystery_code.pickle')
 
-with open(mystery_code_path, 'rb') as f:
+with open(os.path.join(__location__, 'mystery_code.pickle'), 'rb') as f:
     rx_length = pickle.load(f)
+
+with open(os.path.join(__location__, 'op_codes.pickle'), 'rb') as f:
+    op_codes = pickle.load(f)
+
+with open(os.path.join(__location__, 'err_codes.pickle'), 'rb') as f:
+    err_codes = pickle.load(f)
+
+
+class PMDNoResponseException(Exception):
+    pass
+
+
+class PMDError(Exception):
+    pass
 
 
 class PMD:
@@ -31,8 +43,11 @@ class PMD:
         logging.debug(f'received {result}')
         if len(result) < 4:
             logging.error('PMD is not responding')
-        # if result[3] != 0x40:
-        #     TODO: handle non normal status code
+            raise PMDNoResponseException()
+        err_code = (result[3] | 0b00110000) >> 4 != 0x00
+        if err_code != 0x00:
+            logging.error(f'PMD responded with error: {err_codes[err_code]}')
+            raise PMDError()
         if return_format:
             result_bits = bitstring.BitArray(result)
             result_bits.byteswap(2)
