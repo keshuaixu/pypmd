@@ -6,6 +6,7 @@ class TCPTransport:
         self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         # self.s.setblocking(False)
         self.s.connect((host, port))
+        self.close = self.s.close
 
     def send(self, data: bytearray):
         self.s.sendall(data)

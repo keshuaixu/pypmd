@@ -31,8 +31,16 @@ class PMD:
     def __init__(self, interface='tcp', **kwargs):
         transport_interfaces = {'tcp': TCPTransport}
         self.transport = transport_interfaces[interface](**kwargs)
+        self.close = self.transport.close
 
     def send_command(self, axis=0, op_code=None, payload=(), payload_format='', return_format=None):
+        try:
+            if isinstance(op_code, str):
+                op_code = op_codes[op_code]
+        except KeyError:
+            logging.exception(f'cannot find op code: {op_code}')
+            raise
+
         payload_bits = bitstring.pack(payload_format, *payload)
         payload_bits.byteswap(2)
         command = bitstring.pack('0x62, 0x40, uint:8, uint:2, uint:6, bits', op_code, rx_length[op_code], axis,
@@ -44,7 +52,7 @@ class PMD:
         if len(result) < 4:
             logging.error('PMD is not responding')
             raise PMDNoResponseException()
-        err_code = (result[3] | 0b00110000) >> 4 != 0x00
+        err_code = (result[3] & 0b00110000) >> 4 != 0x00
         if err_code != 0x00:
             logging.error(f'PMD responded with error: {err_codes[err_code]}')
             raise PMDError()
