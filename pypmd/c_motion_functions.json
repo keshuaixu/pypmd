@@ -1,0 +1,1535 @@
+{
+    "AdjustActualPosition": {
+        "input_format": "int:32",
+        "input_names": [
+            "position"
+        ],
+        "op_code": 245,
+        "output_format": "",
+        "output_names": []
+    },
+    "CalibrateAnalog": {
+        "input_format": "uint:16",
+        "input_names": [
+            "option"
+        ],
+        "op_code": 111,
+        "output_format": "",
+        "output_names": []
+    },
+    "ClearDriveFaultStatus": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 108,
+        "output_format": "",
+        "output_names": []
+    },
+    "ClearInterrupt": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 172,
+        "output_format": "",
+        "output_names": []
+    },
+    "ClearPositionError": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 71,
+        "output_format": "",
+        "output_names": []
+    },
+    "GetAcceleration": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 76,
+        "output_format": "uint:32",
+        "output_names": [
+            "acceleration"
+        ]
+    },
+    "GetActiveMotorCommand": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 58,
+        "output_format": "int:16",
+        "output_names": [
+            "command"
+        ]
+    },
+    "GetActiveOperatingMode": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 87,
+        "output_format": "uint:16",
+        "output_names": [
+            "mode"
+        ]
+    },
+    "GetActivityStatus": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 166,
+        "output_format": "uint:16",
+        "output_names": [
+            "status"
+        ]
+    },
+    "GetActualPosition": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 55,
+        "output_format": "int:32",
+        "output_names": [
+            "position"
+        ]
+    },
+    "GetActualPositionUnits": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 191,
+        "output_format": "uint:16",
+        "output_names": [
+            "mode"
+        ]
+    },
+    "GetActualVelocity": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 173,
+        "output_format": "int:32",
+        "output_names": [
+            "velocity"
+        ]
+    },
+    "GetAnalogCalibration": {
+        "input_format": "uint:16",
+        "input_names": [
+            "channel"
+        ],
+        "op_code": 42,
+        "output_format": "int:16",
+        "output_names": [
+            "value"
+        ]
+    },
+    "GetBreakpointUpdateMask": {
+        "input_format": "uint:16",
+        "input_names": [
+            "breakpointID"
+        ],
+        "op_code": 51,
+        "output_format": "uint:16",
+        "output_names": [
+            "mask"
+        ]
+    },
+    "GetBreakpointValue": {
+        "input_format": "uint:16",
+        "input_names": [
+            "breakpointID"
+        ],
+        "op_code": 215,
+        "output_format": "int:32",
+        "output_names": [
+            "value"
+        ]
+    },
+    "GetBufferLength": {
+        "input_format": "uint:16",
+        "input_names": [
+            "bufferID"
+        ],
+        "op_code": 195,
+        "output_format": "uint:32",
+        "output_names": [
+            "length"
+        ]
+    },
+    "GetBufferReadIndex": {
+        "input_format": "uint:16",
+        "input_names": [
+            "bufferID"
+        ],
+        "op_code": 199,
+        "output_format": "uint:32",
+        "output_names": [
+            "index"
+        ]
+    },
+    "GetBufferStart": {
+        "input_format": "uint:16",
+        "input_names": [
+            "bufferID"
+        ],
+        "op_code": 193,
+        "output_format": "uint:32",
+        "output_names": [
+            "address"
+        ]
+    },
+    "GetBufferWriteIndex": {
+        "input_format": "uint:16",
+        "input_names": [
+            "bufferID"
+        ],
+        "op_code": 197,
+        "output_format": "uint:32",
+        "output_names": [
+            "index"
+        ]
+    },
+    "GetBusVoltage": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 64,
+        "output_format": "uint:16",
+        "output_names": [
+            "value"
+        ]
+    },
+    "GetCANMode": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 21,
+        "output_format": "uint:8, uint:8",
+        "output_names": [
+            "nodeID",
+            "transmission_rate"
+        ]
+    },
+    "GetCaptureSource": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 217,
+        "output_format": "uint:16",
+        "output_names": [
+            "source"
+        ]
+    },
+    "GetCaptureValue": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 54,
+        "output_format": "int:32",
+        "output_names": [
+            "position"
+        ]
+    },
+    "GetChecksum": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 248,
+        "output_format": "uint:32",
+        "output_names": [
+            "checksum"
+        ]
+    },
+    "GetCommandedAcceleration": {
+        "input_format": "int:32",
+        "input_names": [
+            "*acceleration"
+        ],
+        "op_code": 167,
+        "output_format": "",
+        "output_names": []
+    },
+    "GetCommandedPosition": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 29,
+        "output_format": "int:32",
+        "output_names": [
+            "position"
+        ]
+    },
+    "GetCommandedVelocity": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 30,
+        "output_format": "int:32",
+        "output_names": [
+            "velocity"
+        ]
+    },
+    "GetCommutationMode": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 227,
+        "output_format": "uint:16",
+        "output_names": [
+            "mode"
+        ]
+    },
+    "GetCurrent": {
+        "input_format": "uint:16",
+        "input_names": [
+            "parameter"
+        ],
+        "op_code": 95,
+        "output_format": "uint:16",
+        "output_names": [
+            "value"
+        ]
+    },
+    "GetCurrentControlMode": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 68,
+        "output_format": "uint:16",
+        "output_names": [
+            "mode"
+        ]
+    },
+    "GetCurrentFoldback": {
+        "input_format": "uint:16",
+        "input_names": [
+            "parameter"
+        ],
+        "op_code": 66,
+        "output_format": "uint:16",
+        "output_names": [
+            "value"
+        ]
+    },
+    "GetCurrentLoop": {
+        "input_format": "uint:8, uint:8",
+        "input_names": [
+            "phase",
+            "parameter"
+        ],
+        "op_code": 116,
+        "output_format": "uint:16",
+        "output_names": [
+            "value"
+        ]
+    },
+    "GetCurrentLoopValue": {
+        "input_format": "uint:8, uint:8",
+        "input_names": [
+            "phase",
+            "node"
+        ],
+        "op_code": 113,
+        "output_format": "int:32",
+        "output_names": [
+            "value"
+        ]
+    },
+    "GetDeceleration": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 146,
+        "output_format": "uint:32",
+        "output_names": [
+            "deceleration"
+        ]
+    },
+    "GetDefault": {
+        "input_format": "uint:16",
+        "input_names": [
+            "variable"
+        ],
+        "op_code": 138,
+        "output_format": "uint:32",
+        "output_names": [
+            "value"
+        ]
+    },
+    "GetDriveCommandMode": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 127,
+        "output_format": "uint:8, uint:8",
+        "output_names": [
+            "transport",
+            "format"
+        ]
+    },
+    "GetDriveFaultParameter": {
+        "input_format": "uint:16",
+        "input_names": [
+            "parameter"
+        ],
+        "op_code": 96,
+        "output_format": "uint:16",
+        "output_names": [
+            "value"
+        ]
+    },
+    "GetDriveFaultStatus": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 109,
+        "output_format": "uint:16",
+        "output_names": [
+            "status"
+        ]
+    },
+    "GetDrivePWM": {
+        "input_format": "uint:16",
+        "input_names": [
+            "parameter"
+        ],
+        "op_code": 36,
+        "output_format": "uint:16",
+        "output_names": [
+            "value"
+        ]
+    },
+    "GetDriveStatus": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 14,
+        "output_format": "uint:16",
+        "output_names": [
+            "status"
+        ]
+    },
+    "GetDriveValue": {
+        "input_format": "uint:16",
+        "input_names": [
+            "parameter"
+        ],
+        "op_code": 112,
+        "output_format": "uint:16",
+        "output_names": [
+            "value"
+        ]
+    },
+    "GetEncoderModulus": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 142,
+        "output_format": "uint:16",
+        "output_names": [
+            "modulus"
+        ]
+    },
+    "GetEncoderSource": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 219,
+        "output_format": "uint:16",
+        "output_names": [
+            "source"
+        ]
+    },
+    "GetEncoderToStepRatio": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 223,
+        "output_format": "uint:16, uint:16",
+        "output_names": [
+            "counts",
+            "steps"
+        ]
+    },
+    "GetEventAction": {
+        "input_format": "uint:16",
+        "input_names": [
+            "event"
+        ],
+        "op_code": 73,
+        "output_format": "uint:16",
+        "output_names": [
+            "action"
+        ]
+    },
+    "GetEventStatus": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 49,
+        "output_format": "uint:16",
+        "output_names": [
+            "status"
+        ]
+    },
+    "GetFOC": {
+        "input_format": "uint:8, uint:8",
+        "input_names": [
+            "loop",
+            "parameter"
+        ],
+        "op_code": 247,
+        "output_format": "uint:16",
+        "output_names": [
+            "value"
+        ]
+    },
+    "GetFOCValue": {
+        "input_format": "uint:8, uint:8",
+        "input_names": [
+            "loop",
+            "node"
+        ],
+        "op_code": 90,
+        "output_format": "int:32",
+        "output_names": [
+            "value"
+        ]
+    },
+    "GetFaultOutMask": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 252,
+        "output_format": "uint:16",
+        "output_names": [
+            "mask"
+        ]
+    },
+    "GetFeedbackParameter": {
+        "input_format": "uint:16",
+        "input_names": [
+            "parameter"
+        ],
+        "op_code": 34,
+        "output_format": "uint:32",
+        "output_names": [
+            "value"
+        ]
+    },
+    "GetGearRatio": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 89,
+        "output_format": "int:32",
+        "output_names": [
+            "ratio"
+        ]
+    },
+    "GetInstructionError": {
+        "input_format": "uint:16",
+        "input_names": [
+            "*error"
+        ],
+        "op_code": 165,
+        "output_format": "",
+        "output_names": []
+    },
+    "GetInterruptAxis": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 225,
+        "output_format": "uint:16",
+        "output_names": [
+            "mask"
+        ]
+    },
+    "GetInterruptMask": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 86,
+        "output_format": "uint:16",
+        "output_names": [
+            "mask"
+        ]
+    },
+    "GetJerk": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 88,
+        "output_format": "uint:32",
+        "output_names": [
+            "jerk"
+        ]
+    },
+    "GetMotionCompleteMode": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 236,
+        "output_format": "uint:16",
+        "output_names": [
+            "mode"
+        ]
+    },
+    "GetMotorBias": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 45,
+        "output_format": "int:16",
+        "output_names": [
+            "bias"
+        ]
+    },
+    "GetMotorCommand": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 105,
+        "output_format": "int:16",
+        "output_names": [
+            "command"
+        ]
+    },
+    "GetMotorLimit": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 7,
+        "output_format": "uint:16",
+        "output_names": [
+            "limit"
+        ]
+    },
+    "GetMotorType": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 3,
+        "output_format": "uint:16",
+        "output_names": [
+            "type"
+        ]
+    },
+    "GetOperatingMode": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 102,
+        "output_format": "uint:16",
+        "output_names": [
+            "mode"
+        ]
+    },
+    "GetOutputMode": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 110,
+        "output_format": "uint:16",
+        "output_names": [
+            "mode"
+        ]
+    },
+    "GetOvertemperatureLimit": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 28,
+        "output_format": "uint:16",
+        "output_names": [
+            "limit"
+        ]
+    },
+    "GetPWMFrequency": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 13,
+        "output_format": "uint:16",
+        "output_names": [
+            "frequency"
+        ]
+    },
+    "GetPhaseAngle": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 44,
+        "output_format": "uint:16",
+        "output_names": [
+            "angle"
+        ]
+    },
+    "GetPhaseCommand": {
+        "input_format": "uint:16",
+        "input_names": [
+            "phase"
+        ],
+        "op_code": 234,
+        "output_format": "int:16",
+        "output_names": [
+            "command"
+        ]
+    },
+    "GetPhaseCorrectionMode": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 233,
+        "output_format": "uint:16",
+        "output_names": [
+            "mode"
+        ]
+    },
+    "GetPhaseCounts": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 125,
+        "output_format": "uint:16",
+        "output_names": [
+            "counts"
+        ]
+    },
+    "GetPhaseInitializeMode": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 229,
+        "output_format": "uint:16",
+        "output_names": [
+            "mode"
+        ]
+    },
+    "GetPhaseInitializeTime": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 124,
+        "output_format": "uint:16",
+        "output_names": [
+            "time"
+        ]
+    },
+    "GetPhaseOffset": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 123,
+        "output_format": "uint:16",
+        "output_names": [
+            "offset"
+        ]
+    },
+    "GetPhasePrescale": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 231,
+        "output_format": "uint:16",
+        "output_names": [
+            "scale"
+        ]
+    },
+    "GetPosition": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 74,
+        "output_format": "int:32",
+        "output_names": [
+            "position"
+        ]
+    },
+    "GetPositionError": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 153,
+        "output_format": "int:32",
+        "output_names": [
+            "error"
+        ]
+    },
+    "GetPositionErrorLimit": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 152,
+        "output_format": "uint:32",
+        "output_names": [
+            "limit"
+        ]
+    },
+    "GetPositionLoop": {
+        "input_format": "uint:16",
+        "input_names": [
+            "parameter"
+        ],
+        "op_code": 104,
+        "output_format": "int:32",
+        "output_names": [
+            "value"
+        ]
+    },
+    "GetPositionLoopValue": {
+        "input_format": "uint:16",
+        "input_names": [
+            "node"
+        ],
+        "op_code": 85,
+        "output_format": "int:32",
+        "output_names": [
+            "value"
+        ]
+    },
+    "GetProfileMode": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 161,
+        "output_format": "uint:16",
+        "output_names": [
+            "mode"
+        ]
+    },
+    "GetSPIMode": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 11,
+        "output_format": "uint:16",
+        "output_names": [
+            "mode"
+        ]
+    },
+    "GetSampleTime": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 60,
+        "output_format": "uint:32",
+        "output_names": [
+            "time"
+        ]
+    },
+    "GetSettleTime": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 171,
+        "output_format": "uint:16",
+        "output_names": [
+            "time"
+        ]
+    },
+    "GetSettleWindow": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 189,
+        "output_format": "uint:16",
+        "output_names": [
+            "window"
+        ]
+    },
+    "GetSignalSense": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 163,
+        "output_format": "uint:16",
+        "output_names": [
+            "sense"
+        ]
+    },
+    "GetSignalStatus": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 164,
+        "output_format": "uint:16",
+        "output_names": [
+            "status"
+        ]
+    },
+    "GetStartVelocity": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 107,
+        "output_format": "uint:32",
+        "output_names": [
+            "velocity"
+        ]
+    },
+    "GetStepRange": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 206,
+        "output_format": "uint:16",
+        "output_names": [
+            "range"
+        ]
+    },
+    "GetStopMode": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 209,
+        "output_format": "uint:16",
+        "output_names": [
+            "mode"
+        ]
+    },
+    "GetSynchronizationMode": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 243,
+        "output_format": "uint:16",
+        "output_names": [
+            "mode"
+        ]
+    },
+    "GetTemperature": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 83,
+        "output_format": "uint:16",
+        "output_names": [
+            "temperature"
+        ]
+    },
+    "GetTime": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 62,
+        "output_format": "uint:32",
+        "output_names": [
+            "time"
+        ]
+    },
+    "GetTrackingWindow": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 169,
+        "output_format": "uint:16",
+        "output_names": [
+            "window"
+        ]
+    },
+    "GetUpdateMask": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 250,
+        "output_format": "uint:16",
+        "output_names": [
+            "mask"
+        ]
+    },
+    "GetVelocity": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 75,
+        "output_format": "int:32",
+        "output_names": [
+            "velocity"
+        ]
+    },
+    "InitializePhase": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 122,
+        "output_format": "",
+        "output_names": []
+    },
+    "MultiUpdate": {
+        "input_format": "uint:16",
+        "input_names": [
+            "mask"
+        ],
+        "op_code": 91,
+        "output_format": "",
+        "output_names": []
+    },
+    "ReadAnalog": {
+        "input_format": "uint:16",
+        "input_names": [
+            "portID"
+        ],
+        "op_code": 239,
+        "output_format": "uint:16",
+        "output_names": [
+            "value"
+        ]
+    },
+    "ReadBuffer": {
+        "input_format": "uint:16",
+        "input_names": [
+            "bufferID"
+        ],
+        "op_code": 201,
+        "output_format": "int:32",
+        "output_names": [
+            "data"
+        ]
+    },
+    "ReadBuffer16": {
+        "input_format": "uint:16",
+        "input_names": [
+            "bufferID"
+        ],
+        "op_code": 205,
+        "output_format": "int:16",
+        "output_names": [
+            "data"
+        ]
+    },
+    "ReadIO": {
+        "input_format": "uint:16",
+        "input_names": [
+            "address"
+        ],
+        "op_code": 131,
+        "output_format": "uint:16",
+        "output_names": [
+            "data"
+        ]
+    },
+    "Reset": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 57,
+        "output_format": "",
+        "output_names": []
+    },
+    "ResetEventStatus": {
+        "input_format": "uint:16",
+        "input_names": [
+            "status"
+        ],
+        "op_code": 52,
+        "output_format": "",
+        "output_names": []
+    },
+    "RestoreOperatingMode": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 46,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetAcceleration": {
+        "input_format": "uint:32",
+        "input_names": [
+            "acceleration"
+        ],
+        "op_code": 144,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetActualPosition": {
+        "input_format": "int:32",
+        "input_names": [
+            "position"
+        ],
+        "op_code": 77,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetActualPositionUnits": {
+        "input_format": "uint:16",
+        "input_names": [
+            "mode"
+        ],
+        "op_code": 190,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetBreakpointUpdateMask": {
+        "input_format": "uint:16, uint:16",
+        "input_names": [
+            "breakpointID",
+            "mask"
+        ],
+        "op_code": 50,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetBreakpointValue": {
+        "input_format": "uint:16, int:32",
+        "input_names": [
+            "breakpointID",
+            "value"
+        ],
+        "op_code": 214,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetBufferLength": {
+        "input_format": "uint:16, uint:32",
+        "input_names": [
+            "bufferID",
+            "length"
+        ],
+        "op_code": 194,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetBufferReadIndex": {
+        "input_format": "uint:16, uint:32",
+        "input_names": [
+            "bufferID",
+            "index"
+        ],
+        "op_code": 198,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetBufferStart": {
+        "input_format": "uint:16, uint:32",
+        "input_names": [
+            "bufferID",
+            "address"
+        ],
+        "op_code": 192,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetBufferWriteIndex": {
+        "input_format": "uint:16, uint:32",
+        "input_names": [
+            "bufferID",
+            "index"
+        ],
+        "op_code": 196,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetCANMode": {
+        "input_format": "uint:8, uint:8",
+        "input_names": [
+            "nodeID",
+            "transmission_rate"
+        ],
+        "op_code": 18,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetCaptureSource": {
+        "input_format": "uint:16",
+        "input_names": [
+            "source"
+        ],
+        "op_code": 216,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetCommutationMode": {
+        "input_format": "uint:16",
+        "input_names": [
+            "mode"
+        ],
+        "op_code": 226,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetCurrent": {
+        "input_format": "uint:16, uint:16",
+        "input_names": [
+            "parameter",
+            "value"
+        ],
+        "op_code": 94,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetCurrentControlMode": {
+        "input_format": "uint:16",
+        "input_names": [
+            "mode"
+        ],
+        "op_code": 67,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetCurrentFoldback": {
+        "input_format": "uint:16, uint:16",
+        "input_names": [
+            "parameter",
+            "value"
+        ],
+        "op_code": 65,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetCurrentLoop": {
+        "input_format": "uint:8, uint:8, uint:16",
+        "input_names": [
+            "phase",
+            "parameter",
+            "value"
+        ],
+        "op_code": 115,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetDeceleration": {
+        "input_format": "uint:32",
+        "input_names": [
+            "deceleration"
+        ],
+        "op_code": 145,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetDefault": {
+        "input_format": "uint:16, uint:32",
+        "input_names": [
+            "variable",
+            "value"
+        ],
+        "op_code": 137,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetDriveCommandMode": {
+        "input_format": "uint:8, uint:8",
+        "input_names": [
+            "transport",
+            "format"
+        ],
+        "op_code": 126,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetDriveFaultParameter": {
+        "input_format": "uint:16, uint:16",
+        "input_names": [
+            "parameter",
+            "value"
+        ],
+        "op_code": 98,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetDrivePWM": {
+        "input_format": "uint:16, uint:16",
+        "input_names": [
+            "parameter",
+            "value"
+        ],
+        "op_code": 35,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetEncoderSource": {
+        "input_format": "uint:16",
+        "input_names": [
+            "source"
+        ],
+        "op_code": 218,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetEncoderToStepRatio": {
+        "input_format": "uint:16, uint:16",
+        "input_names": [
+            "counts",
+            "steps"
+        ],
+        "op_code": 222,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetFOC": {
+        "input_format": "uint:8, uint:8, uint:16",
+        "input_names": [
+            "loop",
+            "parameter",
+            "value"
+        ],
+        "op_code": 246,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetFaultOutMask": {
+        "input_format": "uint:16",
+        "input_names": [
+            "mask"
+        ],
+        "op_code": 251,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetFeedbackParameter": {
+        "input_format": "uint:16, uint:32",
+        "input_names": [
+            "parameter",
+            "value"
+        ],
+        "op_code": 33,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetGearRatio": {
+        "input_format": "int:32",
+        "input_names": [
+            "ratio"
+        ],
+        "op_code": 20,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetInterruptMask": {
+        "input_format": "uint:16",
+        "input_names": [
+            "mask"
+        ],
+        "op_code": 47,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetJerk": {
+        "input_format": "uint:32",
+        "input_names": [
+            "jerk"
+        ],
+        "op_code": 19,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetMotionCompleteMode": {
+        "input_format": "uint:16",
+        "input_names": [
+            "mode"
+        ],
+        "op_code": 235,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetMotorBias": {
+        "input_format": "int:16",
+        "input_names": [
+            "bias"
+        ],
+        "op_code": 15,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetMotorLimit": {
+        "input_format": "uint:16",
+        "input_names": [
+            "limit"
+        ],
+        "op_code": 6,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetMotorType": {
+        "input_format": "uint:16",
+        "input_names": [
+            "type"
+        ],
+        "op_code": 2,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetOperatingMode": {
+        "input_format": "uint:16",
+        "input_names": [
+            "mode"
+        ],
+        "op_code": 101,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetOutputMode": {
+        "input_format": "uint:16",
+        "input_names": [
+            "mode"
+        ],
+        "op_code": 224,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetOvertemperatureLimit": {
+        "input_format": "uint:16",
+        "input_names": [
+            "limit"
+        ],
+        "op_code": 27,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetPWMFrequency": {
+        "input_format": "uint:16",
+        "input_names": [
+            "frequency"
+        ],
+        "op_code": 12,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetPhaseAngle": {
+        "input_format": "uint:16",
+        "input_names": [
+            "angle"
+        ],
+        "op_code": 132,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetPhaseCorrectionMode": {
+        "input_format": "uint:16",
+        "input_names": [
+            "mode"
+        ],
+        "op_code": 232,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetPhaseCounts": {
+        "input_format": "uint:16",
+        "input_names": [
+            "counts"
+        ],
+        "op_code": 117,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetPhaseInitializeMode": {
+        "input_format": "uint:16",
+        "input_names": [
+            "mode"
+        ],
+        "op_code": 228,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetPhaseInitializeTime": {
+        "input_format": "uint:16",
+        "input_names": [
+            "time"
+        ],
+        "op_code": 114,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetPhaseOffset": {
+        "input_format": "uint:16",
+        "input_names": [
+            "offset"
+        ],
+        "op_code": 118,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetPhasePrescale": {
+        "input_format": "uint:16",
+        "input_names": [
+            "scale"
+        ],
+        "op_code": 230,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetPosition": {
+        "input_format": "int:32",
+        "input_names": [
+            "position"
+        ],
+        "op_code": 16,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetPositionErrorLimit": {
+        "input_format": "uint:32",
+        "input_names": [
+            "limit"
+        ],
+        "op_code": 151,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetPositionLoop": {
+        "input_format": "uint:16, int:32",
+        "input_names": [
+            "parameter",
+            "value"
+        ],
+        "op_code": 103,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetProfileMode": {
+        "input_format": "uint:16",
+        "input_names": [
+            "mode"
+        ],
+        "op_code": 160,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetSampleTime": {
+        "input_format": "uint:32",
+        "input_names": [
+            "time"
+        ],
+        "op_code": 59,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetSettleTime": {
+        "input_format": "uint:16",
+        "input_names": [
+            "time"
+        ],
+        "op_code": 170,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetSettleWindow": {
+        "input_format": "uint:16",
+        "input_names": [
+            "window"
+        ],
+        "op_code": 188,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetSignalSense": {
+        "input_format": "uint:16",
+        "input_names": [
+            "sense"
+        ],
+        "op_code": 162,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetStartVelocity": {
+        "input_format": "uint:32",
+        "input_names": [
+            "velocity"
+        ],
+        "op_code": 106,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetStepRange": {
+        "input_format": "uint:16",
+        "input_names": [
+            "range"
+        ],
+        "op_code": 207,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetSynchronizationMode": {
+        "input_format": "uint:16",
+        "input_names": [
+            "mode"
+        ],
+        "op_code": 242,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetTraceMode": {
+        "input_format": "uint:16",
+        "input_names": [
+            "mode"
+        ],
+        "op_code": 176,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetTrackingWindow": {
+        "input_format": "uint:16",
+        "input_names": [
+            "window"
+        ],
+        "op_code": 168,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetUpdateMask": {
+        "input_format": "uint:16",
+        "input_names": [
+            "mask"
+        ],
+        "op_code": 249,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetVelocity": {
+        "input_format": "int:32",
+        "input_names": [
+            "velocity"
+        ],
+        "op_code": 17,
+        "output_format": "",
+        "output_names": []
+    },
+    "Update": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 26,
+        "output_format": "",
+        "output_names": []
+    },
+    "WriteBuffer": {
+        "input_format": "uint:16, int:32",
+        "input_names": [
+            "bufferID",
+            "data"
+        ],
+        "op_code": 200,
+        "output_format": "",
+        "output_names": []
+    }
+}

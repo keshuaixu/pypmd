@@ -1,5 +1,6 @@
 import logging
 import pickle
+import re
 
 import bitstring
 
@@ -60,3 +61,13 @@ class PMD:
             result_bits = bitstring.BitArray(result)
             result_bits.byteswap(2)
             return result_bits[32:].unpack(return_format)
+
+    def parse_script_line(self, line: str):
+        axis_regex = re.compile(r'#(?:Axis) (\d)')
+        axis_match = axis_regex.match(line)
+        splitted_line = line.split(' ')
+
+        if axis_match:
+            self.script_parser_axis = axis_match.group(1)
+        elif
+            pass # fix me
