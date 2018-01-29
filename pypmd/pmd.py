@@ -44,6 +44,7 @@ class PMD:
         transport_interfaces = {'tcp': TCPTransport}
         self.transport = transport_interfaces[interface](**kwargs)
         self.close = self.transport.close
+        self.script_parser_axis = 0
         for name, params in c_motion_functions.items():
             setattr(PMD, name, make_c_motion_function(params))
 
@@ -78,9 +79,14 @@ class PMD:
     def parse_script_line(self, line: str):
         axis_regex = re.compile(r'#(?:Axis) (\d)')
         axis_match = axis_regex.match(line)
-        splitted_line = line.split(' ')
+        split_line = line.strip().split()
+        function_name = split_line[0]
+        args = split_line[1:]
 
         if axis_match:
             self.script_parser_axis = axis_match.group(1)
         else:
-            pass  # fix me
+            try:
+                return getattr(self, function_name)(axis=self.script_parser_axis, *args)
+            except AttributeError:
+                logging.warning(f'ignored function {function_name} in script because it does not exist in PMD class')
