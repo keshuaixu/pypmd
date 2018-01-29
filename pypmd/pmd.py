@@ -1,6 +1,7 @@
 import logging
 import pickle
 import re
+import json
 
 import bitstring
 
@@ -19,6 +20,9 @@ with open(os.path.join(__location__, 'op_codes.pickle'), 'rb') as f:
 with open(os.path.join(__location__, 'err_codes.pickle'), 'rb') as f:
     err_codes = pickle.load(f)
 
+with open(os.path.join(__location__, 'c_motion_functions.json'), 'r') as f:
+    c_motion_functions = json.load(f)
+
 
 class PMDNoResponseException(Exception):
     pass
@@ -28,11 +32,20 @@ class PMDError(Exception):
     pass
 
 
+def make_c_motion_function(params):
+    def c_motion_function(self, axis=0, *payload):
+        return self.send_command(axis, params['op_code'], payload, params['input_format'], params['output_format'])
+
+    return c_motion_function
+
+
 class PMD:
     def __init__(self, interface='tcp', **kwargs):
         transport_interfaces = {'tcp': TCPTransport}
         self.transport = transport_interfaces[interface](**kwargs)
         self.close = self.transport.close
+        for name, params in c_motion_functions.items():
+            setattr(PMD, name, make_c_motion_function(params))
 
     def send_command(self, axis=0, op_code=None, payload=(), payload_format='', return_format=None):
         try:
@@ -54,7 +67,7 @@ class PMD:
             logging.error('PMD is not responding')
             raise PMDNoResponseException()
         err_code = (result[3] & 0b00110000) >> 4 != 0x00
-        if err_code != 0x00:
+        if err_code not in (0x00, 0x01):
             logging.error(f'PMD responded with error: {err_codes[err_code]}')
             raise PMDError()
         if return_format:
@@ -69,5 +82,5 @@ class PMD:
 
         if axis_match:
             self.script_parser_axis = axis_match.group(1)
-        elif
-            pass # fix me
+        else:
+            pass  # fix me

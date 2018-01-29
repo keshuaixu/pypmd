@@ -24,6 +24,15 @@ class TestPMD(unittest.TestCase):
         self.assertEqual(result[0], 0x11223344)
         pmd.close()
 
+    def test_c_motion(self):
+        logging.basicConfig(level=logging.DEBUG)
+        pmd = PMD(interface='tcp', host=host)
+        pmd.SetPosition(3, 0x11223344)
+        result = pmd.GetPosition(3)
+        pmd.Update()
+        self.assertEqual(result[0], 0x11223344)
+        pmd.close()
+
 
 if __name__ == '__main__':
     unittest.main()
