@@ -38,6 +38,16 @@
         "output_format": "",
         "output_names": []
     },
+    "DriveNVRAM": {
+        "input_format": "uint:16, uint:16",
+        "input_names": [
+            "option",
+            "value"
+        ],
+        "op_code": 48,
+        "output_format": "",
+        "output_names": []
+    },
     "GetAcceleration": {
         "input_format": "",
         "input_names": [],
@@ -854,6 +864,53 @@
             "time"
         ]
     },
+    "GetTraceCount": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 187,
+        "output_format": "uint:32",
+        "output_names": [
+            "count"
+        ]
+    },
+    "GetTraceMode": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 177,
+        "output_format": "uint:16",
+        "output_names": [
+            "mode"
+        ]
+    },
+    "GetTracePeriod": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 185,
+        "output_format": "uint:16",
+        "output_names": [
+            "period"
+        ]
+    },
+    "GetTraceStatus": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 186,
+        "output_format": "uint:16",
+        "output_names": [
+            "status"
+        ]
+    },
+    "GetTraceValue": {
+        "input_format": "uint:8",
+        "input_names": [
+            "variable"
+        ],
+        "op_code": 40,
+        "output_format": "int:32",
+        "output_names": [
+            "value"
+        ]
+    },
     "GetTrackingWindow": {
         "input_format": "",
         "input_names": [],
@@ -894,6 +951,13 @@
             "mask"
         ],
         "op_code": 91,
+        "output_format": "",
+        "output_names": []
+    },
+    "NoOperation": {
+        "input_format": "",
+        "input_names": [],
+        "op_code": 0,
         "output_format": "",
         "output_names": []
     },
@@ -988,6 +1052,16 @@
             "mode"
         ],
         "op_code": 190,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetAnalogCalibration": {
+        "input_format": "uint:16, int:16",
+        "input_names": [
+            "channel",
+            "value"
+        ],
+        "op_code": 41,
         "output_format": "",
         "output_names": []
     },
@@ -1168,6 +1242,15 @@
         "output_format": "",
         "output_names": []
     },
+    "SetEncoderModulus": {
+        "input_format": "uint:16",
+        "input_names": [
+            "modulus"
+        ],
+        "op_code": 141,
+        "output_format": "",
+        "output_names": []
+    },
     "SetEncoderSource": {
         "input_format": "uint:16",
         "input_names": [
@@ -1184,6 +1267,16 @@
             "steps"
         ],
         "op_code": 222,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetEventAction": {
+        "input_format": "uint:16, uint:16",
+        "input_names": [
+            "event",
+            "action"
+        ],
+        "op_code": 72,
         "output_format": "",
         "output_names": []
     },
@@ -1259,6 +1352,15 @@
             "bias"
         ],
         "op_code": 15,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetMotorCommand": {
+        "input_format": "int:16",
+        "input_names": [
+            "command"
+        ],
+        "op_code": 119,
         "output_format": "",
         "output_names": []
     },
@@ -1416,6 +1518,15 @@
         "output_format": "",
         "output_names": []
     },
+    "SetSPIMode": {
+        "input_format": "uint:16",
+        "input_names": [
+            "mode"
+        ],
+        "op_code": 10,
+        "output_format": "",
+        "output_names": []
+    },
     "SetSampleTime": {
         "input_format": "uint:32",
         "input_names": [
@@ -1470,6 +1581,15 @@
         "output_format": "",
         "output_names": []
     },
+    "SetStopMode": {
+        "input_format": "uint:16",
+        "input_names": [
+            "mode"
+        ],
+        "op_code": 208,
+        "output_format": "",
+        "output_names": []
+    },
     "SetSynchronizationMode": {
         "input_format": "uint:16",
         "input_names": [
@@ -1485,6 +1605,15 @@
             "mode"
         ],
         "op_code": 176,
+        "output_format": "",
+        "output_names": []
+    },
+    "SetTracePeriod": {
+        "input_format": "uint:16",
+        "input_names": [
+            "period"
+        ],
+        "op_code": 184,
         "output_format": "",
         "output_names": []
     },
@@ -1529,6 +1658,16 @@
             "data"
         ],
         "op_code": 200,
+        "output_format": "",
+        "output_names": []
+    },
+    "WriteIO": {
+        "input_format": "uint:16, uint:16",
+        "input_names": [
+            "address",
+            "data"
+        ],
+        "op_code": 130,
         "output_format": "",
         "output_names": []
     }
