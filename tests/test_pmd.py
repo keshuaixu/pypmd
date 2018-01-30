@@ -2,12 +2,20 @@ import logging
 import unittest
 from unittest.mock import patch, Mock, MagicMock
 
+import time
+
 from pypmd import PMD
 
 host = '192.168.1.41'
 
 
 class TestPMD(unittest.TestCase):
+    def setUp(self):
+        pass
+
+    def tearDown(self):
+        time.sleep(0.1)
+
     def test_write_read(self):
         pmd = PMD(interface='tcp', host=host)
         pmd.send_command(axis=3, op_code=0x10, payload=(0x11111111,), payload_format='uint:32')
