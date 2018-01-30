@@ -1,5 +1,6 @@
 import logging
 import unittest
+from unittest.mock import patch, Mock, MagicMock
 
 from pypmd import PMD
 
@@ -32,6 +33,17 @@ class TestPMD(unittest.TestCase):
         pmd.Update()
         self.assertEqual(result[0], 0x11223344)
         pmd.close()
+
+    @patch('socket.socket')
+    @patch('pypmd.pmd.PMD.send_command')
+    def test_c_motion(self, mock_send_command, mock_socket):
+        logging.basicConfig(level=logging.DEBUG)
+        pmd = PMD(interface='tcp', host=host)
+        with open('c_motion_script.txt', 'r') as f:
+            lines = f.readlines()
+            list(map(pmd.parse_script_line, lines))
+        print(mock_send_command.mock_calls)
+        # self.assertEqual(True, True)
 
 
 if __name__ == '__main__':

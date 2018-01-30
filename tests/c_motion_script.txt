@@ -1,0 +1,238 @@
+#Axis 1
+SetSampleTime 256
+SetSPIMode 0
+SetMotorType 7
+SetOutputMode 6
+SetProfileMode 0
+SetPositionErrorLimit 65535
+SetSettleTime 0
+SetSettleWindow 0
+SetTrackingWindow 0
+SetEncoderModulus 0
+SetEncoderSource 0
+SetGearMaster 0
+SetPositionLoop 0 0
+SetPositionLoop 1 0
+SetPositionLoop 2 0
+SetPositionLoop 3 0
+SetPositionLoop 4 1
+SetPositionLoop 5 65535
+SetPositionLoop 6 0
+SetPositionLoop 7 0
+SetPositionLoop 8 0
+SetPositionLoop 9 0
+SetPositionLoop 10 0
+SetPositionLoop 11 0
+SetPositionLoop 12 0
+SetPositionLoop 13 0
+SetPositionLoop 14 0
+SetPositionLoop 15 0
+SetPositionLoop 16 0
+SetPositionLoop 17 0
+SetPositionLoop 18 0
+SetPositionLoop 19 0
+SetPositionLoop 20 0
+SetPositionLoop 21 0
+SetMotorBias 0
+SetMotorLimit 32767
+SetMotorCommand 0
+SetMotionCompleteMode 0
+SetSignalSense 0x0800
+SetCaptureSource 0
+SetBreakpointValue 0 0x00000000
+SetBreakpointValue 1 0x00000000
+SetBreakpoint 0 0x0000
+SetBreakpoint 1 0x0000
+SetAuxiliaryEncoderSource 0x0000
+SetPWMFrequency 5000
+SetCurrentControlMode 0
+SetFOC 512 0
+SetFOC 513 0
+SetFOC 514 16384
+SetCurrentLoop 512 0
+SetCurrentLoop 513 0
+SetCurrentLoop 514 16384
+SetAxisOutMask 0x0000 0x0000 0x0000
+SetDriveFaultParameter 0 38207
+SetDriveFaultParameter 1 7347
+SetCurrentFoldback 0 6486
+SetCurrentFoldback 1 617
+SetEventAction 1 0x0008
+SetEventAction 2 0x0008
+SetEventAction 3 0x0005
+SetEventAction 4 0x0007
+SetDrivePWM 0 16384
+SetDriveFaultParameter 5 1280
+Update
+SetOperatingMode 0x0001
+SetGearRatio 0x00000000
+#Axis 2
+SetMotorType 7
+SetOutputMode 6
+SetProfileMode 0
+SetPositionErrorLimit 65535
+SetSettleTime 0
+SetSettleWindow 0
+SetTrackingWindow 0
+SetEncoderModulus 0
+SetEncoderSource 0
+SetGearMaster 0
+SetPositionLoop 0 0
+SetPositionLoop 1 0
+SetPositionLoop 2 0
+SetPositionLoop 3 0
+SetPositionLoop 4 1
+SetPositionLoop 5 65535
+SetPositionLoop 6 0
+SetPositionLoop 7 0
+SetPositionLoop 8 0
+SetPositionLoop 9 0
+SetPositionLoop 10 0
+SetPositionLoop 11 0
+SetPositionLoop 12 0
+SetPositionLoop 13 0
+SetPositionLoop 14 0
+SetPositionLoop 15 0
+SetPositionLoop 16 0
+SetPositionLoop 17 0
+SetPositionLoop 18 0
+SetPositionLoop 19 0
+SetPositionLoop 20 0
+SetPositionLoop 21 0
+SetMotorBias 0
+SetMotorLimit 32767
+SetMotorCommand 0
+SetMotionCompleteMode 0
+SetSignalSense 0x0800
+SetCaptureSource 0
+SetBreakpointValue 0 0x00000000
+SetBreakpointValue 1 0x00000000
+SetBreakpoint 0 0x0000
+SetBreakpoint 1 0x0000
+SetAuxiliaryEncoderSource 0x0000
+SetPWMFrequency 5000
+SetCurrentControlMode 0
+SetFOC 512 0
+SetFOC 513 0
+SetFOC 514 16384
+SetCurrentLoop 512 0
+SetCurrentLoop 513 0
+SetCurrentLoop 514 16384
+SetAxisOutMask 0x0000 0x0000 0x0000
+SetDriveFaultParameter 0 38207
+SetDriveFaultParameter 1 7347
+SetCurrentFoldback 0 6486
+SetCurrentFoldback 1 617
+SetEventAction 1 0x0008
+SetEventAction 2 0x0008
+SetEventAction 3 0x0005
+SetEventAction 4 0x0007
+SetDrivePWM 0 16384
+SetDriveFaultParameter 5 1280
+Update
+SetOperatingMode 0x0001
+SetGearRatio 0x00000000
+#Axis 3
+SetMotorType 7
+SetOutputMode 0
+SetProfileMode 0
+SetPositionErrorLimit 65535
+SetSettleTime 0
+SetSettleWindow 0
+SetTrackingWindow 0
+SetEncoderModulus 0
+SetEncoderSource 0
+SetGearMaster 0
+SetPositionLoop 0 0
+SetPositionLoop 1 0
+SetPositionLoop 2 0
+SetPositionLoop 3 0
+SetPositionLoop 4 1
+SetPositionLoop 5 65535
+SetPositionLoop 6 0
+SetPositionLoop 7 0
+SetPositionLoop 8 0
+SetPositionLoop 9 0
+SetPositionLoop 10 0
+SetPositionLoop 11 0
+SetPositionLoop 12 0
+SetPositionLoop 13 0
+SetPositionLoop 14 0
+SetPositionLoop 15 0
+SetPositionLoop 16 0
+SetPositionLoop 17 0
+SetPositionLoop 18 0
+SetPositionLoop 19 0
+SetPositionLoop 20 0
+SetPositionLoop 21 0
+SetMotorBias 0
+SetMotorLimit 32767
+SetMotorCommand 0
+SetMotionCompleteMode 0
+SetSignalSense 0x0800
+SetCaptureSource 0
+SetBreakpointValue 0 0x00000000
+SetBreakpointValue 1 0x00000000
+SetBreakpoint 0 0x0000
+SetBreakpoint 1 0x0000
+SetAuxiliaryEncoderSource 0x0000
+SetPWMFrequency 5000
+SetAxisOutMask 0x0000 0x0000 0x0000
+SetEventAction 1 0x0008
+SetEventAction 2 0x0008
+SetEventAction 3 0x0005
+Update
+SetOperatingMode 0x0001
+SetGearRatio 0x00000000
+#Axis 4
+SetMotorType 7
+SetOutputMode 0
+SetProfileMode 0
+SetPositionErrorLimit 65535
+SetSettleTime 0
+SetSettleWindow 0
+SetTrackingWindow 0
+SetEncoderModulus 0
+SetEncoderSource 0
+SetGearMaster 0
+SetPositionLoop 0 0
+SetPositionLoop 1 0
+SetPositionLoop 2 0
+SetPositionLoop 3 0
+SetPositionLoop 4 1
+SetPositionLoop 5 65535
+SetPositionLoop 6 0
+SetPositionLoop 7 0
+SetPositionLoop 8 0
+SetPositionLoop 9 0
+SetPositionLoop 10 0
+SetPositionLoop 11 0
+SetPositionLoop 12 0
+SetPositionLoop 13 0
+SetPositionLoop 14 0
+SetPositionLoop 15 0
+SetPositionLoop 16 0
+SetPositionLoop 17 0
+SetPositionLoop 18 0
+SetPositionLoop 19 0
+SetPositionLoop 20 0
+SetPositionLoop 21 0
+SetMotorBias 0
+SetMotorLimit 32767
+SetMotorCommand 0
+SetMotionCompleteMode 0
+SetSignalSense 0x0800
+SetCaptureSource 0
+SetBreakpointValue 0 0x00000000
+SetBreakpointValue 1 0x00000000
+SetBreakpoint 0 0x0000
+SetBreakpoint 1 0x0000
+SetAuxiliaryEncoderSource 0x0000
+SetPWMFrequency 5000
+SetAxisOutMask 0x0000 0x0000 0x0000
+SetEventAction 1 0x0008
+SetEventAction 2 0x0008
+SetEventAction 3 0x0005
+Update
+SetOperatingMode 0x0001
+SetGearRatio 0x00000000

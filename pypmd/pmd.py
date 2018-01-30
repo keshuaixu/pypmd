@@ -23,6 +23,8 @@ with open(os.path.join(__location__, 'err_codes.pickle'), 'rb') as f:
 with open(os.path.join(__location__, 'c_motion_functions.json'), 'r') as f:
     c_motion_functions = json.load(f)
 
+axis_regex = re.compile(r'#(?:Axis) (\d)')
+
 
 class PMDNoResponseException(Exception):
     pass
@@ -76,17 +78,20 @@ class PMD:
             result_bits.byteswap(2)
             return result_bits[32:].unpack(return_format)
 
-    def parse_script_line(self, line: str):
-        axis_regex = re.compile(r'#(?:Axis) (\d)')
+    def parse_script_line(self, line: str, ignore_unknown_command=True):
         axis_match = axis_regex.match(line)
         split_line = line.strip().split()
         function_name = split_line[0]
         args = split_line[1:]
-
         if axis_match:
-            self.script_parser_axis = axis_match.group(1)
+            self.script_parser_axis = int(axis_match.group(1))
         else:
             try:
-                return getattr(self, function_name)(axis=self.script_parser_axis, *args)
+                return getattr(self, function_name)(self.script_parser_axis, *map(lambda x: int(x, 0), args))
             except AttributeError:
-                logging.warning(f'ignored function {function_name} in script because it does not exist in PMD class')
+                if ignore_unknown_command:
+                    logging.warning(
+                        f'ignored line {line} in script because function {function_name} does not exist in PMD class')
+                else:
+                    logging.exception(f'unable to find function {function_name}')
+                    raise
