@@ -25,7 +25,7 @@ class TestPMD(unittest.TestCase):
         self.assertEqual(result[0], 0x11223344)
         pmd.close()
 
-    def test_c_motion(self):
+    def test_c_motion_basic(self):
         logging.basicConfig(level=logging.DEBUG)
         pmd = PMD(interface='tcp', host=host)
         pmd.SetPosition(3, 0x11223344)
@@ -36,15 +36,23 @@ class TestPMD(unittest.TestCase):
 
     @patch('socket.socket')
     @patch('pypmd.pmd.PMD.send_command')
-    def test_c_motion(self, mock_send_command, mock_socket):
+    def test_c_motion_mocked(self, mock_send_command, mock_socket):
         logging.basicConfig(level=logging.DEBUG)
         pmd = PMD(interface='tcp', host=host)
         with open('c_motion_script.txt', 'r') as f:
             lines = f.readlines()
             list(map(pmd.parse_script_line, lines))
         print(mock_send_command.mock_calls)
+        pmd.close()
         # self.assertEqual(True, True)
 
+    def test_c_motion(self):
+        logging.basicConfig(level=logging.DEBUG)
+        pmd = PMD(interface='tcp', host=host)
+        with open('c_motion_script.txt', 'r') as f:
+            lines = f.readlines()
+            list(map(pmd.parse_script_line, lines))
+        pmd.close()
 
 if __name__ == '__main__':
     unittest.main()

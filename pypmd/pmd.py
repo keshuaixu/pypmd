@@ -11,9 +11,6 @@ import os
 
 __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
-with open(os.path.join(__location__, 'mystery_code.pickle'), 'rb') as f:
-    rx_length = pickle.load(f)
-
 with open(os.path.join(__location__, 'op_codes.pickle'), 'rb') as f:
     op_codes = pickle.load(f)
 
@@ -60,7 +57,12 @@ class PMD:
 
         payload_bits = bitstring.pack(payload_format, *payload)
         payload_bits.byteswap(2)
-        command = bitstring.pack('0x62, 0x40, uint:8, uint:2, uint:6, bits', op_code, rx_length[op_code], axis,
+        try:
+            rx_length = sum(tuple(zip(*bitstring.tokenparser(return_format)[1]))[1]) // 16
+        except (AttributeError, IndexError):
+            rx_length = 0
+            pass
+        command = bitstring.pack('0x62, 0x40, uint:8, uint:2, uint:6, bits', op_code, rx_length, axis,
                                  payload_bits)
         self.transport.send(command.bytes)
         logging.debug(f'sent {command.bytes}')
@@ -86,6 +88,7 @@ class PMD:
         if axis_match:
             self.script_parser_axis = int(axis_match.group(1))
         else:
+            logging.debug(f'parsing {line.strip()}. command {function_name}. axis {self.script_parser_axis}. args {args}')
             try:
                 return getattr(self, function_name)(self.script_parser_axis, *map(lambda x: int(x, 0), args))
             except AttributeError:

@@ -7,6 +7,7 @@ from pprint import pprint, pformat
 error_code_regex = re.compile(r'(?:PMD_ERR_)(.\S*)\s*?=.*?(\S.*),')
 op_code_regex = re.compile(r'(?:PMDOP)(.\S*)\s*?=.*?(\S.*),')
 c_motion_regex = re.compile(r'PMDCFunc PMD(.\S*).*?\((.*?)\)[\S\s]*?{[\S\s]*?}')
+c_motion_blacklist = ('CurrentLoop', 'SerialPort', 'CAN', 'CurrentLoop', 'FOC', 'GetCMotionVersion')
 
 with open('PMDocode.h') as f:
     op_codes = {}
@@ -62,6 +63,9 @@ with open('c-motion.c') as f:
                 arg_type, arg_name = arg.strip().split()
                 if arg_type in ('PMDAxis', 'PMDAxis*'):
                     logging.warning(f'{function_name} ignored because {arg_type}')
+                    break
+                if any(substring in function_name for substring in c_motion_blacklist):
+                    logging.warning(f'{function_name} ignored because it is blacklisted')
                     break
                 if arg_type.endswith('*'):
                     output_names.append(arg_name)

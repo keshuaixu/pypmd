@@ -197,16 +197,6 @@
             "value"
         ]
     },
-    "GetCANMode": {
-        "input_format": "",
-        "input_names": [],
-        "op_code": 21,
-        "output_format": "uint:8, uint:8",
-        "output_names": [
-            "nodeID",
-            "transmission_rate"
-        ]
-    },
     "GetCaptureSource": {
         "input_format": "",
         "input_names": [],
@@ -297,30 +287,6 @@
         ],
         "op_code": 66,
         "output_format": "uint:16",
-        "output_names": [
-            "value"
-        ]
-    },
-    "GetCurrentLoop": {
-        "input_format": "uint:8, uint:8",
-        "input_names": [
-            "phase",
-            "parameter"
-        ],
-        "op_code": 116,
-        "output_format": "uint:16",
-        "output_names": [
-            "value"
-        ]
-    },
-    "GetCurrentLoopValue": {
-        "input_format": "uint:8, uint:8",
-        "input_names": [
-            "phase",
-            "node"
-        ],
-        "op_code": 113,
-        "output_format": "int:32",
         "output_names": [
             "value"
         ]
@@ -452,30 +418,6 @@
         "output_format": "uint:16",
         "output_names": [
             "status"
-        ]
-    },
-    "GetFOC": {
-        "input_format": "uint:8, uint:8",
-        "input_names": [
-            "loop",
-            "parameter"
-        ],
-        "op_code": 247,
-        "output_format": "uint:16",
-        "output_names": [
-            "value"
-        ]
-    },
-    "GetFOCValue": {
-        "input_format": "uint:8, uint:8",
-        "input_names": [
-            "loop",
-            "node"
-        ],
-        "op_code": 90,
-        "output_format": "int:32",
-        "output_names": [
-            "value"
         ]
     },
     "GetFaultOutMask": {
@@ -1125,16 +1067,6 @@
         "output_format": "",
         "output_names": []
     },
-    "SetCANMode": {
-        "input_format": "uint:8, uint:8",
-        "input_names": [
-            "nodeID",
-            "transmission_rate"
-        ],
-        "op_code": 18,
-        "output_format": "",
-        "output_names": []
-    },
     "SetCaptureSource": {
         "input_format": "uint:16",
         "input_names": [
@@ -1179,17 +1111,6 @@
             "value"
         ],
         "op_code": 65,
-        "output_format": "",
-        "output_names": []
-    },
-    "SetCurrentLoop": {
-        "input_format": "uint:8, uint:8, uint:16",
-        "input_names": [
-            "phase",
-            "parameter",
-            "value"
-        ],
-        "op_code": 115,
         "output_format": "",
         "output_names": []
     },
@@ -1277,17 +1198,6 @@
             "action"
         ],
         "op_code": 72,
-        "output_format": "",
-        "output_names": []
-    },
-    "SetFOC": {
-        "input_format": "uint:8, uint:8, uint:16",
-        "input_names": [
-            "loop",
-            "parameter",
-            "value"
-        ],
-        "op_code": 246,
         "output_format": "",
         "output_names": []
     },
