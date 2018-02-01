@@ -42,17 +42,18 @@ class TestPMD(unittest.TestCase):
         self.assertEqual(result[0], 0x11223344)
         pmd.close()
 
-    @patch('socket.socket')
-    @patch('pypmd.pmd.PMD.send_command')
-    def test_c_motion_mocked(self, mock_send_command, mock_socket):
-        logging.basicConfig(level=logging.DEBUG)
-        pmd = PMD(interface='tcp', host=host)
-        with open('c_motion_script.txt', 'r') as f:
-            lines = f.readlines()
-            list(map(pmd.parse_script_line, lines))
-        print(mock_send_command.mock_calls)
-        pmd.close()
-        # self.assertEqual(True, True)
+    # @patch('pypmd.pmd.PMD.read_analogs')
+    # @patch('socket.socket')
+    # @patch('pypmd.pmd.PMD.send_command')
+    # def test_c_motion_mocked(self, mock_send_command, mock_socket, *args):
+    #     logging.basicConfig(level=logging.DEBUG)
+    #     pmd = PMD(interface='tcp', host=host)
+    #     with open('c_motion_script.txt', 'r') as f:
+    #         lines = f.readlines()
+    #         list(map(pmd.parse_script_line, lines))
+    #     print(mock_send_command.mock_calls)
+    #     pmd.close()
+    #     # self.assertEqual(True, True)
 
     def test_c_motion_parse(self):
         logging.basicConfig(level=logging.INFO)

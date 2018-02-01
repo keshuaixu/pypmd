@@ -2,6 +2,7 @@ import logging
 import pickle
 import re
 import json
+from threading import Lock
 
 import bitstring
 
@@ -40,6 +41,7 @@ def make_c_motion_function(params):
 
 class PMD:
     def __init__(self, interface='tcp', **kwargs):
+        self.transport_lock = Lock()
         transport_interfaces = {'tcp': TCPTransport}
         self.transport = transport_interfaces[interface](**kwargs)
         self.close = self.transport.close
@@ -68,10 +70,11 @@ class PMD:
             pass
         command = bitstring.pack('0x62, 0x40, uint:8, uint:2, uint:6, bits', op_code, rx_length, axis,
                                  payload_bits)
-        self.transport.send(command.bytes)
-        logging.debug(f'sent {command.bytes.hex()}')
-        result = self.transport.receive()
-        logging.debug(f'received {result.hex()}')
+        with self.transport_lock:
+            self.transport.send(command.bytes)
+            logging.debug(f'sent {command.bytes.hex()}')
+            result = self.transport.receive()
+            logging.debug(f'received {result.hex()}')
         if len(result) < 4:
             logging.error('PMD is not responding')
             raise PMDNoResponseException()
@@ -109,8 +112,9 @@ class PMD:
 
     def read_analogs(self, unit='v'):
         command = 0x68_80_02_00_40_03_00_00_08_00_00_00.to_bytes(12, 'big')
-        self.transport.send(command)
-        result = self.transport.receive()
+        with self.transport_lock:
+            self.transport.send(command)
+            result = self.transport.receive()
         logging.debug(f'received {result.hex()}')
         if len(result) < 4:
             logging.error('PMD is not responding')
