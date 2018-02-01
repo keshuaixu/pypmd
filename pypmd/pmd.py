@@ -46,6 +46,10 @@ class PMD:
         self.script_parser_axis = 0
         for name, params in c_motion_functions.items():
             setattr(PMD, name, make_c_motion_function(params))
+        try:
+            self.read_analogs()
+        except bitstring.ReadError:
+            pass
 
     def send_command(self, axis=0, op_code=None, payload=(), payload_format='', return_format=None):
         try:
@@ -65,9 +69,9 @@ class PMD:
         command = bitstring.pack('0x62, 0x40, uint:8, uint:2, uint:6, bits', op_code, rx_length, axis,
                                  payload_bits)
         self.transport.send(command.bytes)
-        logging.debug(f'sent {command.bytes}')
+        logging.debug(f'sent {command.bytes.hex()}')
         result = self.transport.receive()
-        logging.debug(f'received {result}')
+        logging.debug(f'received {result.hex()}')
         if len(result) < 4:
             logging.error('PMD is not responding')
             raise PMDNoResponseException()
@@ -88,7 +92,8 @@ class PMD:
         if axis_match:
             self.script_parser_axis = int(axis_match.group(1))
         else:
-            logging.debug(f'parsing {line.strip()}. command {function_name}. axis {self.script_parser_axis}. args {args}')
+            logging.debug(
+                f'parsing {line.strip()}. command {function_name}. axis {self.script_parser_axis}. args {args}')
             try:
                 return getattr(self, function_name)(self.script_parser_axis, *map(lambda x: int(x, 0), args))
             except AttributeError:
@@ -98,3 +103,21 @@ class PMD:
                 else:
                     logging.exception(f'unable to find function {function_name}')
                     raise
+
+    def SetCurrentLoop(self, axis, selector, value):
+        return self.send_command(axis, op_codes['SetCurrentLoop'], (selector, value), payload_format='int:16, int:16')
+
+    def read_analogs(self):
+        command = 0x68_80_02_00_40_03_00_00_08_00_00_00.to_bytes(12, 'big')
+        self.transport.send(command)
+        result = self.transport.receive()
+        logging.debug(f'received {result.hex()}')
+        if len(result) < 4:
+            logging.error('PMD is not responding')
+            raise PMDNoResponseException()
+        err_code = (result[3] & 0b00110000) >> 4 != 0x00
+        if err_code not in (0x00, 0x01):
+            logging.error(f'PMD responded with error: {err_codes[err_code]}')
+            raise PMDError()
+        result_bits = bitstring.BitArray(result)
+        return result_bits[32:].unpack('<8h')

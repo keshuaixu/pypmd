@@ -55,7 +55,7 @@ class TestPMD(unittest.TestCase):
         # self.assertEqual(True, True)
 
     def test_c_motion_parse(self):
-        logging.basicConfig(level=logging.DEBUG)
+        logging.basicConfig(level=logging.INFO)
         pmd = PMD(interface='tcp', host=host)
         with open('c_motion_script.txt', 'r') as f:
             lines = f.readlines()
@@ -69,6 +69,13 @@ class TestPMD(unittest.TestCase):
         list(map(pmd.parse_script_line, lines))
         result = pmd.GetPosition(2)
         self.assertEqual(result[0], -332211)
+        pmd.close()
+
+    def test_c_motion_read_analog(self):
+        logging.basicConfig(level=logging.DEBUG)
+        pmd = PMD(interface='tcp', host=host)
+        result = pmd.read_analogs()
+        print(result)
         pmd.close()
 
 
