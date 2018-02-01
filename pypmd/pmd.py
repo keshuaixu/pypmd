@@ -107,7 +107,7 @@ class PMD:
     def SetCurrentLoop(self, axis, selector, value):
         return self.send_command(axis, op_codes['SetCurrentLoop'], (selector, value), payload_format='int:16, int:16')
 
-    def read_analogs(self):
+    def read_analogs(self, unit='v'):
         command = 0x68_80_02_00_40_03_00_00_08_00_00_00.to_bytes(12, 'big')
         self.transport.send(command)
         result = self.transport.receive()
@@ -120,4 +120,8 @@ class PMD:
             logging.error(f'PMD responded with error: {err_codes[err_code]}')
             raise PMDError()
         result_bits = bitstring.BitArray(result)
-        return result_bits[32:].unpack('<8h')
+        result_adc_count = result_bits[32:].unpack('<8h')
+        if unit == 'count':
+            return result_adc_count
+        elif unit == 'v':
+            return [x * 10 / 32767 for x in result_adc_count]
