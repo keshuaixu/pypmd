@@ -107,6 +107,11 @@ class PMD:
                     logging.exception(f'unable to find function {function_name}')
                     raise
 
+    def parse_script(self, file):
+        with open(file, 'r') as f:
+            lines = f.readlines()
+            [self.parse_script_line(line) for line in lines]
+
     def SetCurrentLoop(self, axis, selector, value):
         return self.send_command(axis, op_codes['SetCurrentLoop'], (selector, value), payload_format='int:16, int:16')
 
@@ -129,3 +134,28 @@ class PMD:
             return result_adc_count
         elif unit == 'v':
             return [x * 10 / 32767 for x in result_adc_count]
+
+    def read_encoder_position(self, axis):
+        return self.GetActualPosition(axis)[0]
+
+    def read_encoder_velocity(self, axis):
+        return self.GetActualVelocity(axis)[0]
+
+    def set_motor_current(self, axis, current, full_scale_current=1.5):
+        current_command = (current / full_scale_current) * 32768
+        return self.SetMotorCommand(axis, int(current_command))
+
+    def read_motor_current(self, axis, full_scale_current=1.5):
+        result = self.send_command(axis, 'GetCurrentLoopValue', payload=(0x00, 0x01), payload_format='int:8, int:8',
+                                   return_format='int:32')[0]
+        current = result / (2 ** 14) * full_scale_current
+        return current
+
+    def set_operating_mode(self, axis, axis_enabled=False, motor_output_enabled=False, current_control_enabled=False,
+                           position_loop_enabled=False, trajectory_enabled=False):
+        mode = axis_enabled << 0 | motor_output_enabled << 1 | current_control_enabled << 2 \
+               | position_loop_enabled << 4 | trajectory_enabled << 5
+        return self.SetOperatingMode(axis, mode)
+
+    def multi_update(self, mask=0b1111):
+        self.MultiUpdate(0, mask)

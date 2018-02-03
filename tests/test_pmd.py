@@ -79,6 +79,33 @@ class TestPMD(unittest.TestCase):
         print(result)
         pmd.close()
 
+    def test_motor_current_command(self):
+        logging.basicConfig(level=logging.INFO)
+        pmd = PMD(interface='tcp', host=host)
+        pmd.set_operating_mode(1, 1, 1, 1, 0, 0)
+        pmd.set_motor_current(1,0.1)
+        pmd.Update(1)
+        pmd.multi_update()
+        time.sleep(0.5)
+        pmd.set_motor_current(1, 0)
+        pmd.multi_update()
+        pmd.Update(1)
+        pmd.close()
+
+    def test_update_mask(self):
+        logging.basicConfig(level=logging.INFO)
+        pmd = PMD(interface='tcp', host=host)
+        result = pmd.GetUpdateMask(0)[0]
+        print(bin(result))
+        pmd.close()
+
+    def test_operating_mode(self):
+        logging.basicConfig(level=logging.INFO)
+        pmd = PMD(interface='tcp', host=host)
+        result = pmd.GetOperatingMode(1)[0]
+        print(bin(result))
+        pmd.close()
+
 
 if __name__ == '__main__':
     unittest.main()
