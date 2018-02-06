@@ -142,7 +142,7 @@ class PMD:
         return self.GetActualVelocity(axis)[0]
 
     def set_motor_current(self, axis, current, full_scale_current=1.5):
-        current_command = (current / full_scale_current) * 32768
+        current_command = 1310 * current
         return self.SetMotorCommand(axis, int(current_command))
 
     def read_motor_current(self, axis, full_scale_current=1.5):
